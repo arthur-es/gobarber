@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-console */
 import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
-import routes from './routes/routes';
+import uploadConfig from '@config/upload';
+import routes from '@shared/infra/http/routes';
 
-import AppError from './errors/AppError';
+import AppError from '@shared/errors/AppError';
 
-import uploadConfig from './config/upload';
-import './database';
+import '@shared/infra/typeorm';
 
 const PORT = 3333;
 const app = express();
@@ -18,7 +20,7 @@ app.use('/files', express.static(uploadConfig.directory));
 app.use(routes);
 
 app.use(
-  (error: Error, request: Request, response: Response, next: NextFunction) => {
+  (error: Error, request: Request, response: Response, _: NextFunction) => {
     if (error instanceof AppError) {
       response
         .status(error.statusCode)

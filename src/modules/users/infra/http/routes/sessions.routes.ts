@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-const sessionsRouter = Router();
+import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 
-import AuthenticateUserService from '../services/AuthenticateUserService';
+const sessionsRouter = Router();
 
 sessionsRouter.post('/', async (request, response) => {
   const { email, password } = request.body;
