@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { Router } from 'express';
 import multer from 'multer';
 
