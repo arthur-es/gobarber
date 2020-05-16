@@ -1,5 +1,3 @@
-import 'reflect-metadata';
-
 import AppError from '@shared/errors/AppError';
 
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
