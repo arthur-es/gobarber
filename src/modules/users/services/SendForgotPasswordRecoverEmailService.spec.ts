@@ -5,10 +5,10 @@ import FakeUserTokensRepository from '@modules/users/repositories/fakes/FakeUser
 import FakeMailProvider from '@shared/container/providers/MailProvider/fakes/FakeMailProvider';
 import SendForgotPasswordRecoverEmailService from './SendForgotPasswordRecoverEmailService';
 
-let fakeUsersRepository = FakeUsersRepository;
-let fakeUserTokensRepository = FakeUserTokensRepository;
-let fakeMailProvider = FakeMailProvider;
-let sendForgotPasswordEmail = SendForgotPasswordRecoverEmailService;
+let fakeUsersRepository: FakeUsersRepository;
+let fakeUserTokensRepository: FakeUserTokensRepository;
+let fakeMailProvider: FakeMailProvider;
+let sendForgotPasswordEmail: SendForgotPasswordRecoverEmailService;
 
 describe('SendForgotPasswordRecoverEmail', () => {
   beforeEach(() => {
@@ -57,7 +57,7 @@ describe('SendForgotPasswordRecoverEmail', () => {
     });
 
     await sendForgotPasswordEmail.execute({
-      email: 'arthurcastroes@gmail.com',
+      email: 'token-email@gmail.com',
     });
 
     expect(generate).toHaveBeenCalledWith(user.id);
